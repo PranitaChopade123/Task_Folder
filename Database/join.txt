@@ -1,0 +1,55 @@
+create database Edubridge;
+use Edubridge;
+
+create table student(
+id int(5),
+fullname varchar(30)
+);
+
+insert into student value(123,"Pranita Chopade"),
+(456,"Gunjan Balpande"),
+(789,"Ragini Patil"),
+(321,"Pratiksha Doke"),
+(654,"Madhura Atkale");
+
+
+select *from student;
+
+create table student1(
+id varchar(5),
+email varchar(30)
+);
+
+insert into student1 value("123","Pranita@gmail.com"),
+("A102","meera@gmail.com"),
+("321","pratiksh@gmail.com"),
+("B104","rani@gmail.com"),
+("C105","nikita@gmail.com");
+
+select *from student1;
+
+
+# Cross or Cartesion
+select * from student cross join student1;
+
+select * from student cartesian join student1;
+
+
+select student.fullname,student1.email from student cross join student1;
+
+
+# Inner or Equi join
+
+select * from student inner join student1;
+
+
+select * from student equi join student1;
+
+select * from student inner join student1 where student.id=student1.id;
+
+
+select student.id,student.fullname,student1.email from student inner join student1 on student.id=student1.id;
+
+
+
+select * from student left join student1;

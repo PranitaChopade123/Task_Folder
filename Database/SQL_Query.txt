@@ -1,0 +1,294 @@
+create database test1;
+use test1;
+create table student(
+s_id int(5),
+s_name varchar(20),
+s_email varchar(20),
+s_mark int(2),
+s_age int(2),
+s_place varchar(10)
+);
+drop table student;
+insert into student values(101,"Pranita","pranita@gmail.com", 80,22,"Pune"),
+(102,"Meera","Meera@gmail.com", 90,23,"Mumbai"),
+(103,"Radha","radha@gmail.com",30,24,"Goa"),
+(104,"Khushi","kushi@gmail.com", 55,22,"Delhi"),
+(105,"Rani","rani@gmail.com", 55,24,"Banglore"),
+(106,"Nikita","nikita@gmail.com", 65,21,"Satara"),
+(107,"Ram","ram@gmail.com", 90,18,"Jalgoan"),
+(108,"Pranav","pranav@gmail.com",40,19,"Pune");
+select * from student;
+
+select * from student where s_mark>70 && s_age=22;
+select * from student where s_mark<70 || s_age<20;
+select * from student where s_id=105 ||s_id=108;
+select * from student where s_id in(105,108);
+select * from student where s_id not in(105,108);
+
+
+select * from student where s_age !=22;
+select * from student where s_age <>22;
+
+select s_mark from student where s_mark between 20 and 75;
+select s_mark from student where s_mark not between 20 and 75;
+
+select * from student where s_mark >=40 and s_mark<=70 and s_id not in(106,104);
+
+select * from student where `s_id` not in(106,104) and s_mark between 40 and 70;
+
+
+select * from student order by  s_id  desc;
+
+
+
+select * from student order by  s_id;
+select min(s_mark) from student;
+select max(s_mark) from student;
+select avg(s_mark) from student;
+select count(s_id) from student;
+select sum(s_mark) from student;
+
+
+select now();
+select dayname('1999-03-14');
+select dayofweek('1999-03-14');
+select dayofmonth('1999-03-14');
+select dayofyear('1999-03-14');
+select current_time();
+
+create table student1(
+id int(5),
+name varchar(20),
+email varchar(20),
+mark int(2),
+age int(2),
+place varchar(10)
+);
+
+insert into student1 values(101,"Rani","rani@gmail.com", 40,22,"Pune"),
+(102,"Gauri","gauri@gmail.com", 90,13,"Pune"),
+(103,"Priya","priya@gmail.com",78,23,"Kolhapur"),
+(104,"Durga","durga@gmail.com", 95,22,"Solapur"),
+(105,"Rani","rani@gmail.com", 55,24,"Banglore"),
+(106,"Pooja","Pooja@gmail.com", 70,26,"Nagpur"),
+(107,"Sham","Sham@gmail.com", 50,18,"Gujrat"),
+(108,"Supriya","supriya@gmail.com",78,19,"Ahembdabad");
+select * from student1;
+
+
+select s_place from student Union
+ (select place from student1 ) ;
+ 
+
+select s_place from student Union all 
+(select place from student1 ) ;
+
+select distinct name from student1;
+
+
+select s_mark,
+ case
+when s_mark >60 then "marks is good"  
+when s_mark =30 then "marks is average" 
+else" marks is less than 30" end as Grade  from student;
+
+
+select s_id ,s_name,s_mark from student order by s_id desc,s_name ASC,s_mark desc;
+
+create table person(
+id int(4) not null,
+name varchar(20) not null,
+email varchar(30) not null
+
+);
+#insert into person values(null,null,null),(123,"Pranita","pranita@gmail.com"),(234,"Khushi","khushi@gmail.com");
+insert into person values
+(102,"Meera","Meera@gmail.com"),
+(103,"Radha","radha@gmail.com"),
+(104,"Khushi","kushi@gmail.com"),
+(105,"Rani","rani@gmail.com"),
+(106,"Nikita","nikita@gmail.com");
+
+drop table person;
+alter table person add (address varchar(20),
+ age int(2) Not Null);
+ 
+ alter table person modify age int(2) Null;
+ 
+ 
+ desc person;
+ 
+
+create table person1(
+id int(4) not null,
+name varchar(20) not null,
+email varchar(30) not null,
+unique(id,name)
+);
+
+create table person2(
+id int(4) not null,
+name varchar(20) not null,
+email varchar(30) not null,
+address varchar(20),
+constraint UC_person unique(id,name)
+);
+
+#alter table person2 add unique (p_id);
+alter table person2 add unique(address);
+drop table person2;
+desc person2;
+
+insert into person2 values
+(102,"Meera","Meera@gmail.com","pune"),
+(103,"Radha","radha@gmail.com","Mumbai");
+
+alter table person2 drop index UC_person;
+
+
+create table x(
+id int(4) primary key,
+name varchar(20),
+email varchar(30)
+);
+
+create table x1(
+id int(4),
+name varchar(20) not null,
+email varchar(30),
+address varchar(20),
+age int(2),
+adhar int(10),
+check(age >=18)
+#constraint UC primary key(id,name,email)
+);
+drop table x1;
+/*insert into x1 values
+(102,"Meera","Meera@gmail.com"),
+(102,"Meera","Meera@gmail.com"),
+(103,"Radha","radha@gmail.com");
+*/
+select * from x1;
+insert into x1 values(102,"Meera","Meera@gmail.com","PUNE", 18,"7364743");
+desc x1;
+
+alter table x1 add primary key (address);
+
+alter table x1 add constraint pr primary key (age,adhar);
+
+create table person(
+id int(4)primary key,
+firstname varchar(20),
+lastname varchar(30)
+
+);
+drop table person;
+#insert into person values(null,null,null),(123,"Pranita","pranita@gmail.com"),(234,"Khushi","khushi@gmail.com");
+insert into person values
+(101,"Meera","Patil"),
+(102,"Radha","Sharma"),
+(103,"Khushi","Varma");
+
+
+create table order1(
+orderid int(4)primary key,
+orderno varchar(20) not null,
+ id int(4)
+ 
+
+);
+drop table order1;
+alter table order1 add foreign key (id) references person(id);
+
+alter table order1 add 
+constraint pr
+foreign key (id) references person(id);
+
+alter table order1 drop foreign key pr;
+
+
+
+
+desc order1;
+#insert into person values(null,null,null),(123,"Pranita","pranita@gmail.com"),(234,"Khushi","khushi@gmail.com");
+insert into order1 values
+(1,"348658",101),
+(2,"375586",101),
+(3,"3u5856",103),
+(4,"7569657",102),
+(5,"587687",103);
+
+#insert into order1 values (6,653467,105);  error  105 is not there in person table
+
+create table department(dept_name varchar(20) primary key,
+ building int
+ );
+
+insert into department values("IT",1),("COMP",2),("ENTC",3),("MECH",4);
+
+
+create table stud(s_id int primary key,
+s_name varchar(20),
+dept_name varchar(20),
+foreign key(dept_name)references department(dept_name));
+
+insert into stud values
+(101,"Rani","IT"),
+(102,"Gauri","IT"),
+(103,"Priya","MECH"),
+(104,"Durga","COMP"),
+(105,"Durga","COMP"),
+(106,"Durga","ENTC");
+
+select * from stud; 
+
+CREATE TABLE Persons3 (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    City varchar(255) DEFAULT 'Sandnes'
+);
+desc persons3;
+truncate table stud;
+truncate table department;
+desc stud;
+select * from stud;
+
+
+
+CREATE TABLE Friends (
+name varchar(20) not null,
+mobile int(10) not null,
+unique(mobile)
+    
+);
+
+insert into friends value
+("Pranita",1234567890),
+("Meera",1234567896),
+("Radha",1234567895),
+("Madhura",1234567894),
+("Pratiksha",1234567893),
+("Nikita",1234567892),
+("Dhanashree",1234567897),
+("Amruta",1234567898),
+("Priyanka",1234567880),
+("Gunjan",1234567860);
+
+select name from friends where name like '_%an%_';  # shows an in middle
+
+select name from friends where name like '_____';  # shows 5 character name
+
+
+select name from friends where name like '%ta';  # shows ending with ta 
+
+select name from friends where name like 'pr%';  # shows starting with pr
+
+select name from friends where name like '%ta%';  # shows ta at any place
+
+select name from friends where name like 'pr%ta';  # shows starting with pr and ending with ta
+
+select name from friends where name like '_ra%';   # shows ra at second place
+
+select name from friends where name like 'P%' or name like'r%' or name like 'g%';  

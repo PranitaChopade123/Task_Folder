@@ -1,0 +1,34 @@
+package Basic;
+
+public class This_method {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		pranita p=new pranita();
+		p.work();
+		
+	}
+
+}
+
+
+class pranita
+{
+	void xyz()
+	{
+		this.color("black");
+		System.out.println("XYZ.....");
+	}
+	
+	void color(String n)
+	{
+		System.out.println(n);
+	}
+	void work()
+	{
+		this.xyz();
+		System.out.println("Hiii....Welcome");
+	}
+	
+}

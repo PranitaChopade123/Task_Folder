@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+public class Demo2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter Your branch :");
+		char ch= sc.next().charAt(0);
+		System.out.println("Enter year :");
+		int year= sc.nextInt();
+	
+		switch(year)
+		{
+		case 1: System.out.println("English Marathi Science");
+		break;
+		case 2:
+			switch(ch)
+			{
+			case 'A' :
+				System.out.println(" ABC");
+				break;
+
+			case 'B' :
+				System.out.println(" ABCD");
+				break;
+
+			case 'C' :
+				System.out.println(" ABCDE");
+				break;
+				
+			}
+			break;
+		case 3:
+			switch(ch)
+			{
+			case 'A' :
+				System.out.println(" XYZ");
+				break;
+
+			case 'B' :
+				System.out.println(" XYZ1");
+				break;
+
+			case 'C' :
+				System.out.println(" XYZ12");
+				break;
+				
+			}
+			break;
+		case 4:
+			switch(ch)
+			{
+			case 'A' :
+				System.out.println(" PQR");
+				break;
+
+			case 'B' :
+				System.out.println(" PQRS");
+				break;
+
+			case 'C' :
+				System.out.println(" PQRST");
+				break;
+				
+			}
+			break;
+			default :
+				System.out.println("invalid");
+		}
+
+	}
+
+}

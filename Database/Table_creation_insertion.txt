@@ -1,0 +1,88 @@
+create database MIT;
+drop database MIT;
+
+create database PESMCOE;
+
+
+show databases;
+
+use pesmcoe;
+
+create table Mech(
+s_roll int(5),
+s_name varchar(20),
+s_email varchar(20),
+s_adhar varchar(20)
+);
+
+create table ECE(
+s_roll int(5),
+s_name varchar(20),
+s_email varchar(20),
+s_adhar varchar(20)
+);
+
+create table COMP(
+s_roll int(5),
+s_name varchar(20),
+s_email varchar(20),
+s_adhar varchar(20)
+);
+
+show tables from PESMCOE;
+
+desc COMP;
+insert into Mech values(101,"Pranita","pranita@gmail.com", 2347883748),
+(102,"Meera","Meera@gmail.com", 2347883748),
+(103,"Radha","radha@gmail.com", 2347883748),
+(104,"Khushi","kushi@gmail.com", 2347883748),
+(105,"Rani","rani@gmail.com", 2347883748),
+(106,"Nikita","nikita@gmail.com", 2347883748),
+(107,"Ram","ram@gmail.com", 2347883748),
+(108,"Pranav","pranav@gmail.com", 2347883748),
+(109,"Ajay","ajay@gmail.com", 2347883748),
+(110,"Durga","durga@gmail.com", 2347883748);
+
+
+insert into ECE values(101,"Pranita","pranita@gmail.com", 2347883748),
+(102,"Meera","Meera@gmail.com", 2347883748),
+(103,"Radha","radha@gmail.com", 2347883748),
+(104,"Khushi","kushi@gmail.com", 2347883748),
+(105,"Rani","rani@gmail.com", 2347883748),
+(106,"Nikita","nikita@gmail.com", 2347883748),
+(107,"Ram","ram@gmail.com", 2347883748),
+(108,"Pranav","pranav@gmail.com", 2347883748),
+(109,"Ajay","ajay@gmail.com", 2347883748),
+(110,"Durga","durga@gmail.com", 2347883748);
+
+
+insert into COMP values(101,"Pranita","pranita@gmail.com", 2347883748),
+(102,"Meera","Meera@gmail.com", 2347883748),
+(103,"Radha","radha@gmail.com", 2347883748),
+(104,"Khushi","kushi@gmail.com", 2347883748),
+(105,"Rani","rani@gmail.com", 2347883748),
+(106,"Nikita","nikita@gmail.com", 2347883748),
+(107,"Ram","ram@gmail.com", 2347883748),
+(108,"Pranav","pranav@gmail.com", 2347883748),
+(109,"Ajay","ajay@gmail.com", 2347883748),
+(110,"Durga","durga@gmail.com", 2347883748);
+
+select *from mech;
+
+select s_roll,s_name from mech;
+
+select * from Comp;
+
+select s_name from mech where s_name = "meera";
+
+# adding extra column in existng table
+
+alter table mech add(address varchar(50));
+# for multiple column adding
+alter table mech add( phone_no varchar(10),country varchar(10));
+
+desc mech;
+
+#alter table mech modify s_roll varchar(5);
+
+alter table mech change column s_roll roll varchar(5);
