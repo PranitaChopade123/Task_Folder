@@ -1,0 +1,29 @@
+package Basic;
+
+import java.util.Scanner;
+
+public class Swap_without_third {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter The first No A=");
+		int A=sc.nextInt();
+		System.out.println("Enter The second No B=");
+		int B=sc.nextInt();
+		System.out.println("A and B before swaping A= " + A + " And B= " + B);
+		
+		
+		A=A+B;
+		B=A-B;
+		A=A-B;
+		
+		System.out.println("A and B After swaping A= " + A + " And B= " + B);
+		
+		
+		
+		
+	}
+
+}
