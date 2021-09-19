@@ -1,75 +1,75 @@
-import java.util.*;
-public class Arithmatic_Operation {
-
-
-	public static void main(String[] args) {
-//		String ADD=null,SUB=null,MUL=null,DIV=null;
-		Scanner sc = new Scanner(System.in);
-		boolean flag = true;
-		String choice;
-		System.out.println("Hello..... Welcome to Edubridge India");
-		do{
-		System.out.println("Enter your choice from \n1.ADD \n2.SUB \n3.MUL \n4.DIV");
-		
-		choice = sc.next();
-		}while(flag==true);
-//		 int ADD = sc.nextInt();
-//		 String ADD= sc.next();
-//		 SUB = sc.next();
-//		 MUL = sc.next();
-//		 DIV = sc.next();
-
-		switch(choice){
-		case "1.ADD" :
-			
-		    System.out.println("Enter the value of a and b : ");
-		    int a = sc.nextInt();
-		    int b = sc.nextInt();
-		    int c = a + b;
-		    System.out.println("The addition of "+a+ " and " +b+ " is " + c);
-		    break;
-		    
-		case "2.SUB" :
-		
-		    System.out.println("Enter the value: ");
-		    int d = sc.nextInt();
-		    int e = sc.nextInt();
-		    int f = d - e;
-		    System.out.println("The addition of "+d+ " and " +e+ " is " + f);
-		    break;
-		    
-		case "3.MUL" :
-			 System.out.println("Enter the value : ");
-			    int g = sc.nextInt();
-			    int h = sc.nextInt();
-			    int i = g * h;
-			    System.out.println("The addition of "+g+ " and " +h+ " is " + i);
-			    break;
-		
-		case "4.DIV" : 
-			 System.out.println("Enter the value : ");
-			    int j = sc.nextInt();
-			    int k = sc.nextInt();
-			    int l = j / k;
-			    System.out.println("The addition of "+j+ " and " +k+ " is " + l);
-			    break;
-		
-		default:
-			System.out.println("You have entered an invalid choice");
-			System.out.println("Please enter the  valid choice from \n1.ADD \n2.SUB \n3.MUL \n4.DIV");
-		}
-		
-		System.out.println("Do you want to continue: \nYES \nNO");
-	
-		
-		
-		
-		if(YES)
-			flag=true;
-			
-		else
-			System.out.println("Thank You .......Have a Good Day........");
-		
-			
-	}
+import java.util.Scanner;
+public class Arithmatic_operation 
+{
+          public static void main(String[] strings) 
+          {
+                    int ex;
+                    do
+                    {
+                    Scanner input = new Scanner(System.in);
+                    System.out.println("Hi We are welcome to Edubridge Calculation"); 
+                    
+                    System.out.print("Which condition you Want to perform ");
+                    System.out.println("\n 1. Add \n 2. mul \n 3. sub \n 4. div \n 5. Exit");
+                    String choice= input.nextLine();
+                    
+                    switch (choice) 
+                    {
+                              case "ADD":
+                              
+                                        Scanner sc1=new Scanner(System.in);
+                                        System.out.println("Addtion part");
+                                        System.out.println("Enter any two integer");
+                                        int a=sc1.nextInt();
+                                        int b=sc1.nextInt();
+                                        System.out.println("addtion=" +(a+b));
+                                       
+                             
+                              break;
+                              case "MUL":
+                              
+                                        Scanner sc2=new Scanner(System.in);
+                                        System.out.println("multiplication part");
+                                        System.out.println("Enter any two integer");
+                                        int a1=sc2.nextInt();
+                                        int b1=sc2.nextInt();
+                                        System.out.println("multiplication=" +(a1*b1) );
+                                        
+                                        
+                               
+                              break;
+                              case "SUB":
+                              
+                                        Scanner sc3=new Scanner(System.in);
+                                        System.out.println("Substraction part");
+                                        System.out.println("Enter any two integer");
+                                        int a2=sc3.nextInt();
+                                        int b2=sc3.nextInt();
+                                        System.out.println("substraction=" +(a2-b2) );
+                                       
+                                        
+                                
+                                        break;
+                              case "DIV":
+                              
+                              
+                                        Scanner sc4=new Scanner(System.in);
+                                        System.out.println("division part");
+                                        System.out.println("Enter any two integer");
+                                        int a3=sc4.nextInt();
+                                        int b3=sc4.nextInt();
+                                        System.out.println("division=" +(a3/b3));
+                                        
+                                        
+                              
+                                        break;
+                             case "EXIT":
+                                       default: System.out.println("Invalid choice");
+                                        break;
+                    }
+        System.out.println("Do You Want To Continue 1 yes 2 no");
+         ex=input.nextInt();
+    }
+    while(ex==1);
+}
 }
