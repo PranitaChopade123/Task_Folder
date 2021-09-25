@@ -1,0 +1,33 @@
+package Basic;
+
+import java.util.Scanner;
+
+public class GCD {
+ public static void main(String args[]){
+
+	 Scanner sc=new Scanner(System.in);
+	 System.out.println("Enter First no");
+	 int num1=sc.nextInt();
+	 System.out.println("Enter second no");
+	 int num2=sc.nextInt();
+	 
+	 System.out.println("GCD of two numbers " + num1 + " and  " + num2 + " is " + Find_GCD(num1,num2));
+	 
+	 
+	 
+}
+
+
+
+public static int Find_GCD(int number1,int number2)
+{
+	if(number2==0)
+	{
+		return number1;
+	}
+	return Find_GCD(number2,number1%number2);
+	
+	
+	
+}
+}

@@ -1,0 +1,25 @@
+package Basic;
+import java.util.Scanner;
+public class Daytomonth {
+
+	
+public static void main(String[] args)
+	{
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter Days : ");
+		int days=scan.nextInt();
+		
+		
+		if(days >=  30  || days >=31)	
+		{
+			System.out.println("1 month and " +(days-30)+" days");
+		}
+		else
+		{
+			System.out.println("Please enter days is 30 and above");
+		}
+	}
+	
+	
+	
+}

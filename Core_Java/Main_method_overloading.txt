@@ -1,0 +1,25 @@
+package Basic;
+import java.io.*;
+public class Overload_main_method {
+
+	    // Normal main()
+	    public static void main(String[] args) {
+	        System.out.println("Hello Pranita from normal main");
+	        
+	        Overload_main_method.main("Pranita");//call second main here
+	    }
+	  
+	    // Overloaded main methods
+	    public static void main(String arg1) {
+	    	
+	        System.out.println("Welcome!!! " + arg1);
+	        
+	        Overload_main_method.main(" Pranita"," Lahu Chopade");// call third main here
+	    }
+	    public static void main(String arg1, String arg2) {
+	        System.out.println("Welcome to Edubridge !!!" + arg1  + arg2);
+	    }
+
+	
+	
+}
