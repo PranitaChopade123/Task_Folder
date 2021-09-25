@@ -1,0 +1,82 @@
+package Basic;
+
+public class Encapsulation {
+
+	public static void main(String[] args) {
+		
+	      Account_details a1  = new Account_details(1234567,"Pranita","Pune","ABCD18045372","700000");
+	      System.out.println("Account Name " + a1.getAccountName());
+	      System.out.println("Address " + a1.getAccountNumber());
+	      System.out.println("Account Number " + a1.getAddress());
+	      System.out.println("Pan Number " + a1.getPanNumber());
+	      System.out.println("Balance " + a1.getBalance());
+	      
+	      //set the value
+	      System.out.println("\nSet the value using setter \n");
+	      a1.setAccountName( "Khushi");
+	      a1.setAccountNumber( 7654321);
+	      a1.setAddress("Delhi");
+	      a1.setPanNumber("XYDE63458521");
+	    //  a1.setBalance("4378956");   error because not give setter method only view the balance
+	     
+	      System.out.println(a1.getAccountName());
+	      System.out.println(a1.getAccountNumber());
+	      System.out.println(a1.getAddress());
+	      System.out.println(a1.getPanNumber());
+	      
+			
+		}
+
+	}
+	
+	class Account_details {
+		 private int accountNumber;
+		 private String accountName;
+		 private String address;
+		 private String panNumber;
+		 private String balance;
+		 
+		 
+		
+	 Account_details(int accountNumber, String accountName, String address, String panNumber,String balance) {
+			super();
+			this.accountNumber = accountNumber;
+			this.accountName = accountName;
+			this.address = address;
+			this.panNumber = panNumber;
+			this.balance = balance;
+		}
+		public int getAccountNumber() {
+			return accountNumber;
+		}
+		public void setAccountNumber(int accountNumber) {
+			this.accountNumber = accountNumber;
+		}
+		public String getAccountName() {
+			return accountName;
+		}
+		public void setAccountName(String accountName) {
+			this.accountName = accountName;
+		}
+		public String getAddress() {
+			return address;
+		}
+		public void setAddress(String address) {
+			this.address = address;
+		}
+		public String getPanNumber() {
+			return panNumber;
+		}
+		public void setPanNumber(String panNumber) {
+			this.panNumber = panNumber;
+		}
+		 
+		public String getBalance() {
+			return balance;
+		}
+		
+		 
+	}
+
+
+	

@@ -1,0 +1,173 @@
+package Basic;
+
+import java.util.*;
+
+public class Linked_list {
+
+	 public static void main(String[] args) {
+	     
+	     LinkedList<String> l1 = new LinkedList<String>();
+	 
+	          l1.add("Pranita");
+	          l1.add("Rani");
+	          l1.add("Meera");
+	          l1.add("Sunita");
+	          l1.add("Komal");
+	          l1.add("Durga");
+		
+
+	   System.out.println("The linked list: " + l1);
+	   
+	   System.out.println("***************************");
+	  // Print the linked list using for each
+	  for (String element : l1) {
+	    System.out.println(element);
+	    }
+	  System.out.println("***************************");
+	// set Iterator at specified index
+	   Iterator p = l1.listIterator(1);
+
+	   // print list from second position
+	   while (p.hasNext()) {
+	   System.out.println(p.next());
+	   }
+	   System.out.println("***************************");
+	   System.out.println("Original linked list: " + l1);
+	   Iterator it = l1.descendingIterator();
+
+	     // Print list elements in reverse order
+	     System.out.println("Elements in Reverse Order:");
+	     while (it.hasNext()) {
+	        System.out.println(it.next());
+	     }
+	     System.out.println("***************************");
+		    
+	   //add the element at specific position
+	     l1.add(1, "Pranita");
+			// print the list
+			System.out.println("The linked list:" + l1);
+	     
+			System.out.println("***************************");
+			
+			// Add an element at the beginning 
+		    l1.addFirst("Welcome to Edubridge");
+		 
+		   // Add an element at the end 
+		    l1.addLast("Thank you");
+		     
+		    /*// or
+		    
+		    l1.offerFirst("Welcome to Edubridge");
+		    l1.offerLast("Thank you");
+		   */
+		    
+		     System.out.println("Updated linked list:" + l1);  
+			
+			System.out.println("***************************");
+			
+			 LinkedList <String> l2 = new LinkedList <String> ();
+			 l2.add("1234");
+			 l2.add("5678");
+			 l2.add("Pihuu");
+			 l2.add("Rani");
+			
+			// Add the second list in the second position of the first linked list
+			  l1.addAll(1, l2);
+             System.out.println("Updated link list " + l1);
+			
+			System.out.println("***************************");
+			
+			// Find first element of the List
+		    Object first = l1.getFirst();
+		    System.out.println("First element is: "+first);
+		 
+		    // Find last element of the List
+		    Object last = l1.getLast();
+		    System.out.println("Last element is: "+last);
+			
+			System.out.println("***************************");
+			
+			// Remove the first element
+		    Object first1 = l1.removeFirst();
+		    System.out.println("first element removed: "+ first1);
+		 
+		  // Remove the last element
+		    Object last1 = l1.removeLast();
+		    System.out.println("last element removed: "+ last1);
+		    
+		    System.out.println("Updated linked list: " + l1);
+			
+		    System.out.println("***************************");
+			
+		    System.out.println("Original linked list:" + l1);  
+		    for(int i=0; i < l1.size(); i++)
+		     {
+		        System.out.println("Element at index "+i+": "+l1.get(i));
+		      } 
+			
+			System.out.println("***************************");
+			
+			//remove particular element
+			System.out.println("Before removing " + l1);
+			// Remove the element in third position
+			l1.remove(2);
+			System.out.println("After removing " + l1);
+			
+			System.out.println("***************************");
+			
+			// Removing all the elements
+		    l1.clear();
+		 
+		    System.out.println("The New linked list: " + l1);
+		 
+			
+			System.out.println("***************************");
+			
+			//Swap array_list
+			  LinkedList<String> l3= new LinkedList<String>();
+	          l3.add("1");
+	          l3.add("2");
+	          l3.add("3");
+	          l3.add("4");
+	          l3.add("5");
+			  System.out.println("Linked list before Swap:");
+	          for(String a: l3){
+	          System.out.println(a);
+	        }
+	          //Swapping 1st element with the 3rd element
+	         Collections.swap(l3, 0, 2);
+	          System.out.println("Linked list after swap:");
+	          for(String b: l3){
+	          System.out.println(b);
+	          }
+			  
+	          System.out.println("***************************");
+			  
+	      	// Join two list
+	      		  
+	          		LinkedList<String> a = new LinkedList<String>();
+	          		System.out.println("List2 (l2) " + l2);
+	      	        System.out.println("List3 (l3) " + l3);
+	      	        a.addAll(l2);
+	      	        a.addAll(l3);
+	      	        System.out.println("New List: " + a);
+	      	        
+	      	        System.out.println("***************************");
+	      	        // Remove array List...Make empty and check that linked list is empty or not
+	      	        System.out.println("Original linked list: " + l2);
+	      	        System.out.println("Checking the above linked list is empty or not= "+l2.isEmpty());
+	      		       
+	      	          l2.removeAll(l2);
+	      	          System.out.println("Linked list after remove all elements "+l2); 
+	      	         System.out.println("Checking the above linked list is empty or not= "+l2.isEmpty());
+	      	   
+	      	         System.out.println("***************************");
+	      	         
+  
+	     
+	     
+	     
+	 }
+}
+	  
+	

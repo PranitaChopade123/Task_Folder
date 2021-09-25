@@ -1,0 +1,150 @@
+package Basic;
+import java.util.*;
+public class Array_list {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		//add values in array_list
+		
+		  List<String> l= new ArrayList<String>();
+		  l.add("Pranita");
+		  l.add("Nikita");
+		  l.add("Sapna");
+		  l.add("Aditi");
+		  l.add("Shivani");
+		
+		 
+		// Print the list
+		  System.out.println("Simple print " +l);
+		  System.out.println("***************************");
+		  
+		// Print the list using for each loop
+		  System.out.println("Using For each loop ");
+		  for (String element : l) {
+		    System.out.println( element);
+		    }
+		
+		  System.out.println("***************************");
+		  // Now insert a names at the first and last position of the list
+		  
+		  l.add(0, "Khusi");
+		  l.add(5, "Meera");
+		  
+		  // Print the list
+		  System.out.println("After adding values " + l);
+		
+		  System.out.println("***************************");
+		// Retrive the first and third element
+		  String element = l.get(0);
+		  System.out.println("First element: "+element);
+		  element = l.get(2);
+		  System.out.println("Third element: "+element);
+		  
+		  System.out.println("***************************");
+		// Update the third element
+		  System.out.println("After updating Pranita at 3 position");
+		  l.set(2, "Pranita");
+		  System.out.println(l);
+		 
+		  System.out.println("***************************");
+		  
+		// Remove the third element
+		  l.remove(2);
+		  System.out.println("After removing third element:"+l);
+
+		  
+		  System.out.println("***************************");
+		  
+		// Search the value Pranita
+		    if (l.contains("Pranita")) {
+		    System.out.println("Found");
+		    } else {
+		    System.out.println("Not Found");
+		    }
+		  
+		  System.out.println("***************************");
+		  // sort array_list
+		  System.out.println("List before sort: "+l);
+		  Collections.sort(l);
+		  System.out.println("List after sort: "+l);    
+		  
+		  System.out.println("***************************");
+		  //copy Second list to first list
+		  List<String> l2 = new ArrayList<String>();
+		  l2.add("Ram");
+		  l2.add("Sham");
+		  l2.add("Pranav");
+		  l2.add("Sarthak");
+		  l2.add("Durga");
+		  l2.add("Ram");
+		  System.out.println("Second list : " + l2);
+		  // Copy l2 to l 
+		  Collections.copy(l, l2);
+		
+		  System.out.println("After copy first list (l): " + l);
+		  
+		
+		  System.out.println("***************************");
+		  //Shuffle the list
+		  System.out.println("List before shuffling" + l);  
+		  Collections.shuffle(l);
+		  System.out.println("List after shuffling" + l); 
+		  
+		  System.out.println("***************************");
+		//Reverse the list
+		  System.out.println("List before reversing " + l);  
+		  Collections.reverse(l);
+		  System.out.println("List after reversing" + l); 
+		  
+		  System.out.println("***************************");
+		//SubList
+		  System.out.println("Original list: " + l);
+		  List<String> sub_List = l.subList(0, 4);
+		  System.out.println("List of first four elements: " + sub_List);
+		  
+		  System.out.println("***************************");
+		  //Swap array_list
+		  ArrayList<String> l3= new ArrayList<String>();
+          l3.add("1");
+          l3.add("2");
+          l3.add("3");
+          l3.add("4");
+          l3.add("5");
+		  System.out.println("Array list before Swap:");
+          for(String a: l3){
+          System.out.println(a);
+        }
+          //Swapping 1st element with the 3rd element
+         Collections.swap(l3, 0, 2);
+          System.out.println("Array list after swap:");
+          for(String b: l3){
+          System.out.println(b);
+          }
+		  System.out.println("***************************");
+		  
+	// Join two list
+		  
+	        ArrayList<String> a = new ArrayList<String>();
+	        System.out.println("List1 (l) " + l);
+	        System.out.println("List3 (l3) " + l3);
+	        a.addAll(l);
+	        a.addAll(l3);
+	        System.out.println("New array: " + a);
+	        
+	        System.out.println("***************************");
+	        // Remove array List...Make empty and check that array list is empty or not
+	        System.out.println("Original array list: " + l);
+	        System.out.println("Checking the above array list is empty or not= "+l.isEmpty());
+		       
+	          l.removeAll(l);
+	          System.out.println("Array list after remove all elements "+l); 
+	         System.out.println("Checking the above array list is empty or not= "+l.isEmpty());
+	   
+	         System.out.println("***************************");
+	         
+		  
+	}
+
+}
