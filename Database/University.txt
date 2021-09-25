@@ -1,0 +1,187 @@
+create database  university;
+drop database university;
+use university;
+
+create table classroom(building integer,
+roomnumber integer,
+capacity integer,
+primary key(building,roomnumber)
+);
+
+ describe classroom;
+
+ create table department(deptname varchar(20) primary key,
+ building integer,
+ foreign key(building)references classroom(building),
+ budget integer);
+
+  describe department;
+ 
+ create table instructor(id integer primary key, 
+ name varchar(20),
+ salary int(15),
+ deptname varchar(20),
+ foreign key(deptname)references department(deptname)
+ );
+
+  describe instructor;
+  
+  create table student(sid varchar(20) primary key,
+  name varchar(20),
+  total_credits integer,
+  deptname varchar(20),
+  foreign key(deptname)references department(deptname)
+  );
+
+ describe student;
+
+
+
+create table course(course_id varchar(20) primary key,
+title  varchar(20),
+credits integer,
+deptname varchar(20),
+foreign key(deptname)references department(deptname)
+);
+
+describe course;
+
+create table time_slot(tid varchar(20) primary key,
+day varchar(20),
+start_time varchar(10),
+end_time varchar(10));
+
+
+describe time_slot;
+
+ describe classroom;
+ 
+
+ create table advisor(id integer,
+ foreign key(id) references instructor(id),
+ sid varchar(20),
+ foreign key(sid) references student(sid),
+ primary key(sid)
+ );
+
+ 
+
+ insert into classroom(building,roomnumber,capacity)values(1,11,120),(2,21,120),(3,32,60),(4,42,180),(5,52,60);
+ select * from classroom;
+ 
+ insert into department(deptname,building,budget)values('Computer',1,500000),
+ ('Music',2,100000),
+ ('Physics',3,400000),
+ ('History',4,300000),
+ ('Biology',5,700000);
+select * from department;
+  
+insert into instructor(id,name,salary,deptname)values(111,'ABC',65000,'Computer'),
+(112,'PQR',90000,'Music'),
+(113,'EFG',70000,'Physics'),
+(114,'XYZ',50000,'History'),
+(115,'LMN',90000,'Music'),
+(116,'UVW',70000,'Physics'),
+(117,'STU',55000,'Biology');
+
+insert into student(sid,name,total_credits,deptname)values('S1','Pranita',8,'Music'),
+('S2','Sapna',9,'Computer'),
+('S3','Chetan',9,'Music'),
+('S4','Mayuri','9','Physics'),
+('S5','Priya',7,'Biology'),
+('S6','Tanvi',6,'Computer'),
+('S7','Anushka',9,'History');
+
+insert into course(course_id,title,credits,deptname)values('Bio-1','Intro to Bio',4,'Biology'),
+('Phy-2','Physics Principles',4,'Physics'),
+('CS-1','Intro to CS',3,'Computer'),
+('CS-2','Robotics',4,'Computer'),
+('Bio-2','Genetics',3,'Computer'),
+('His-1','World History',4,'History'),
+('MU-2','Music Video',4,'Music'),
+('MU-1','Music Audio',3,'Music');
+
+update course set deptname='Biology' where title='Genetics';
+
+ select * from course;
+ 
+  insert into time_slot(tid,day,start_time,end_time)values('T1','Monday','9 am','2 pm'),
+('T2','Monday','10 am','3 pm'),
+('T3','Tuesday','9 am','2 pm'),
+('T4','Thrusday','8 am','10 am'),
+('T5','Friday','7 am','9 am');
+
+insert into advisor(id,sid)values(112,'s1'),(111,'s2'),(114,'s3'),(113,'s4'),(112,'s5');
+
+
+#Query
+
+#1) FIND THE NAMES OF ALL INSTRUCTOR IN COMPUTER DEPARTMENT WHO HAS SALARY GRAETER THAN 70000.
+
+ select name from instructor where deptname='Computer'and salary<70000;
+ 
+#2)FIND THE NAME OF INSTRUCTOR WHO ARE WORKING IN PHYSICS DEPARTMENT.
+
+ select name from instructor where deptname='Physics';
+ 
+ #3)FIND THE NAMES OF DEPARTMENT WHOSE BUDGET IS GREATER THAN 50000.
+
+select deptname from department where budget>500000;
+
+#4)FIND THE NAMES OF STUDENT WHO ARE STUDYING IN COMPUTER DEPARTMENT.
+
+ select name from student where deptname='Computer'; 
+ 
+ #5)FIND THE NAMES OF STUDENT WHO ARE STUDYING IN MUSIC DEPARTMENT WHO HAVE GOT TOTAL CREDITS MORE THAN 7.
+ 
+ select name from student where deptname='Music'and total_credits>7;
+ 
+#6)FIND OUT THE CAPACITY OF ROOM NO.
+
+ select capacity from classroom;
+
+#7)GIVE THE INCREMENT OF RS10000 TO THOSE INSTRUCTOR WHOSE SALARY IS LESS THAN 40000.
+update instructor set salary=salary+10000 where salary<40000;
+
+#8)GIVE THE INCREMENT OF RS10000 TO THOSE INSTRUCTOR WHOSE SALARY IS LESS THAN 70000
+ update instructor set salary=salary+10000 where salary<70000;
+ 
+# 9)GIVE THE INCREMENT OF RS10000 TO THOSE INSTRUCTOR WHOSE SALARY IS LESS THAN 40000 ELSE GIVE INCREMENT OF RS20000.    *****************
+ update instructor set salary= case when salary<40000 then salary=10000+salary else salary=salary+20000 end;
+
+
+#10)FIND THE NAMES OF ALL INSTRUCTOR ALONG WITH THEIR DEPTNAME AND DEPARTMENT BUILDING NUMBER.
+ select instructor.name,instructor.deptname,department.building from instructor,department where instructor.deptname=department.deptname;
+
+#11)FIND THE NAMES OF ALL DEPARTMENT WHOSE NAME INCLUDES SUBSTRING 'I'.
+ select deptname from department where deptname like'%i%';
+
+#12)FIND THE NAMES OF INSTRUCTOR WHOSE NAME ARE EXACTLY 3 CHARACTERS.
+ select name from instructor where name like '___';
+ 
+#13)FIND TITLES ALONG WITH DEPARTMENT NAME WHERE DEPT MUST END WITH 'Y'.																																																																											
+ select title,deptname from course where deptname like '%y';
+ 
+#14)FIND THE AVERAGE SALARY FROM INSTRUCTOR
+select avg(salary) from instructor;
+
+#15)FIND THE AVERAGE SALARY FROM INSTRUCTOR SALARY GREATER THAN 30000 AND LESS THAN 70000
+ select avg(salary) from instructor where salary>30000 && salary<70000;
+ 
+ #16)FIND THE NAMES OF INSTRUCTOR WITH SALARY AMOUNT BETWEEN 30000 AND 70000.
+ select name,salary from instructor where salary>20000 and salary<70000;
+ 
+ #17)Find the maximum salary and department name from instructor.
+ select max(salary),deptname  from instructor;
+ 
+ #18)Find minimum salary of all instructors.
+ select min(salary) from instructor;
+ 
+ #19)UPDATE INSTRUCTOR SALARY 70000 WHOSE ID IS 116.
+update instructor set salary=70000 where id=116;
+
+
+#20)FIND NAMES OF INSTRUCTOR WHOSE NAMES NEITHER ABC NOR LMN.
+select name from instructor where name not in( 'ABC','LMN');
+
+
