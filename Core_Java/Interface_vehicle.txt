@@ -1,0 +1,91 @@
+package Basic;
+
+interface vehicle
+{
+	void changeGear(int a);
+	void speed(int a);
+	void color(String a);
+	
+}
+
+class Bicycle implements vehicle
+{
+int gear;
+int speed;
+String color;
+	@Override
+	public void changeGear(int newGear) {
+		// TODO Auto-generated method stub
+		gear=newGear;
+		
+	}
+
+	@Override
+	public void speed(int increment) {
+		// TODO Auto-generated method stub
+		speed=speed+increment;
+	}
+
+	@Override
+	public void color(String a) {
+		// TODO Auto-generated method stub
+		color=a;
+	}
+	
+	public void display()
+	{
+		System.out.println("Gear : " + gear + " Speed : " + speed + " color :" + color);
+	} 
+	
+}
+
+class Bike implements vehicle
+{
+int gear;
+int speed;
+String color;
+	@Override
+	public void changeGear(int nGear) {
+		// TODO Auto-generated method stub
+		gear=nGear;
+	}
+
+	@Override
+	public void speed(int a) {
+		// TODO Auto-generated method stub
+		speed= 2*(speed+a);
+	}
+
+	@Override
+	public void color(String a) {
+		// TODO Auto-generated method stub
+		color=a;
+	}
+	public void display()
+	{
+		System.out.println("Gear : " + gear + " Speed : " + speed + " color :" + color);
+	} 
+	
+}
+
+public class Interface_Example
+{
+	public static void main(String[] args)
+	{
+		//Bicycle object
+		Bicycle b= new Bicycle();
+		b.color("RED");
+		b.changeGear(1);
+		b.speed(4);
+		System.out.println("Bicycle values :");
+		b.display();
+		
+		//Bike object
+				Bike b1= new Bike();
+				b1.color("Black");
+				b1.changeGear(4);
+				b1.speed(6);
+				System.out.println("Bike values :");
+				b1.display();
+	}
+}
