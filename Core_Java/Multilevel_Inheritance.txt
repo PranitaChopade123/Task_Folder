@@ -1,0 +1,42 @@
+package Basic;
+
+
+class Multi1 {
+	int a=10;
+	public void add()
+	{
+		System.out.println("Addition is 10");
+	}
+	
+}
+
+class Multi2 extends Multi1{
+	int b=20;
+	public void Sub()
+	{
+		System.out.println("Substartiob is 20");
+	}
+	
+}
+
+class Multi3 extends Multi2{
+	public void Mul()
+	{
+		System.out.println("Multiplication is 30");
+	}
+	
+}
+
+public class Multilevel {
+
+	public static void main(String[] args) {
+		Multi3 m3 = new Multi3();
+		m3.add();
+		m3.Sub();
+		m3.Mul();
+		System.out.println(m3.a);
+		System.out.println(m3.b);
+
+	}
+
+}

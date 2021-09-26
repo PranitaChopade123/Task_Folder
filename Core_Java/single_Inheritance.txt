@@ -1,0 +1,33 @@
+package Basic;
+
+public class Inheritance {
+
+	// Single Level Inheritance :
+			int a=10;
+			int b=20;
+			
+			public void addition()
+			{
+				int c=a+b;
+				System.out.println("Addition is : "+c);
+			}
+			public void substraction()
+			{
+				int c=a-b;
+				System.out.println("substraction is : "+c);
+			}
+		}
+
+class Child extends Inheritance{
+			
+			int x=10,y=10;
+			int z=x*y;
+			public void addition()
+			{
+				Inheritance s1 = new Child();
+				s1.addition();
+				System.out.println("Multiplication is : "+z);
+			}
+			
+		}
+
