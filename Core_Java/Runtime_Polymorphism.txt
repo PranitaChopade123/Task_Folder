@@ -1,0 +1,73 @@
+package Basic;
+
+
+	class Bank{ 
+		      double minAccountBalance()
+		      {
+		    	  return 0;
+		      }
+		
+				float getRateOfInterest()
+				{
+					return 0;
+				}  
+			} 
+	
+		class SBI extends Bank{
+			 double minAccountBalance()
+		      {
+		    	  return 2000.0;
+		      }
+			
+			
+				float getRateOfInterest()
+				{
+					return 5.0f;
+				}  
+			} 
+		
+		class ICICI extends Bank
+		{  
+			double minAccountBalance()
+		      {
+		    	  return 5000.0;
+		      }
+			
+			float getRateOfInterest()
+			{
+				return 7.8f;
+			}  
+		} 
+		
+		class AXIS extends Bank
+		{  
+			
+			double minAccountBalance()
+		      {
+		    	  return 500.0;
+		      }
+			
+			float getRateOfInterest()
+			{
+			return 6.4f;
+			}  
+		}
+		
+		public class Runtime_Polymorphism {
+ 
+		public static void main(String args[]){  
+		Bank b;  
+		b=new SBI(); 
+		
+		System.out.println("SBI Bank Rate of Interest: "+b.getRateOfInterest()); 
+		System.out.println("SBI Bank Minimum Balance: "+b.minAccountBalance());
+		
+		b=new ICICI();  
+		System.out.println("ICICI Rate of Interest: "+b.getRateOfInterest());
+		System.out.println("ICICI Bank Minimum Balance: "+b.minAccountBalance());
+		
+		b=new AXIS();  
+		System.out.println("AXIS Bank Rate of Interest: "+b.getRateOfInterest());
+		System.out.println("AXIS Bank Minimum Balance: "+b.minAccountBalance());
+		}  
+		}  
