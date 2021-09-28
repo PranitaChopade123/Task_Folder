@@ -1,0 +1,41 @@
+package Basic;
+
+
+
+interface Arithmetic
+{
+	int operation(int a,int b);
+}
+
+
+public class Lambda_arithmetic
+{
+	public static void main(String[] args)
+	{
+		
+		Arithmetic addition =(int a,int b)->
+		{
+			return a+b;
+		};
+		
+		System.out.println("Addition " + addition.operation(5, 5));
+	
+		
+		Arithmetic substraction =(int a,int b)->a-b;
+		System.out.println("Substraction " + substraction.operation(10, 5));
+		
+		Arithmetic multiplication =(int a,int b)->a*b;
+		System.out.println("Multiplication " + multiplication.operation(10, 5));
+		
+		Arithmetic division =(int a,int b)->a/b;
+		System.out.println("Division " + division.operation(10, 5));
+		
+		Arithmetic modulo =(int a,int b)->a%b;
+		System.out.println("Remainder " +modulo.operation(11, 5));
+		
+		
+		
+	}
+}
+
+

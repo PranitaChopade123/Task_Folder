@@ -1,0 +1,26 @@
+package Basic;
+import java.util.*;  
+public class Lambda {
+
+ public static void main(String[] args) {  
+	          
+	        List<String> list=new ArrayList<String>();  
+	        list.add("Pranita");  
+	        list.add("Meera");  
+	        list.add("Radha");  
+	        list.add("Pranav");  
+	          
+	        list.forEach(  
+	            (element)->System.out.println(element)  
+	        );
+	        
+	        //otherwise without lambda
+	       /* for (String element : list) {
+			    System.out.println( element);
+			    }
+			    */
+			
+	    }  
+	
+	
+}
