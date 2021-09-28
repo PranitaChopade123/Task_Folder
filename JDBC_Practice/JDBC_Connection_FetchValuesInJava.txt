@@ -1,0 +1,62 @@
+package basic;
+
+import java.sql.*;
+public class JDBC_Connection {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		try
+		{
+			//step 1: Register the driver class
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			//step 2: Create connection
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/College","root","root");
+			
+			//step 3: Create Statement
+			
+			Statement st =con.createStatement();
+			
+			// Execute Queries
+			
+			ResultSet rs=st.executeQuery("select *from Teacher");
+			
+			
+			while(rs.next())
+			{
+				System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3));
+				
+			}
+			
+			// step 5 : close Connection
+			con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		
+	}
+
+}
+
+/*
+
+create database College;
+use College;
+create table Teacher(
+id int(5),
+name varchar(20),
+salary varchar(10)
+);
+insert into teacher values (1,"Pranita","65000"),
+(2,"Khushi","50000");
+
+create table student(
+roll int(5),
+name varchar(20),
+address varchar(10)
+);
+select * from student;
+*/

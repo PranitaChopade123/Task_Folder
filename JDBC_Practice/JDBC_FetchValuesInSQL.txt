@@ -1,0 +1,87 @@
+package basic;
+
+import java.sql.*;
+
+import java.util.Scanner;
+
+public class Practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     // creating connection
+		
+		String url="jdbc:mysql://localhost:3306/College";
+		String user="root";
+		String password="root";
+		
+		//Entering data 
+		Scanner sc= new Scanner(System.in);
+		
+		System.out.println("Enter the roll no of student");
+		int roll=sc.nextInt();
+		
+		
+		System.out.println("Enter the name of student");
+		String name=sc.next();
+		
+		System.out.println("Enter the address of student");
+		String address=sc.next();
+		
+		// insert the data using SQL Query
+		
+		String in= "insert into student values ('" + roll + "','" + name + "','" + address + "')";
+		
+		Connection con=null;
+	    
+	    try
+	    {
+	    	Class.forName("com.mysql.jdbc.Driver");
+	    	
+	    	con=DriverManager.getConnection(url,user,password);
+	    	
+	    	Statement st= con.createStatement();
+	    	
+	    	int s=st.executeUpdate(in);
+	    	if(s==1)
+	    	{
+	    		System.out.println("Value inserted Successfully");
+	    	}
+	    	else
+	    	{
+	    		System.out.println("Insertion failed");
+	    	}
+	    
+	    }
+		
+	    catch(Exception e)
+	    {
+	    	System.out.println(e);
+	    }
+	   	
+		
+	}
+
+}
+/*
+
+create database College;
+use College;
+create table Teacher(
+id int(5),
+name varchar(20),
+salary varchar(10)
+);
+insert into teacher values (1,"Pranita","65000"),
+(2,"Khushi","50000");
+
+create table student(
+roll int(5),
+name varchar(20),
+address varchar(10)
+);
+select * from student;
+*/
+
+
+
+
